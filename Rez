@@ -1,0 +1,42 @@
+-- Carrega a biblioteca
+local redzlib = loadstring(game:HttpGet("https://raw.githubusercontent.com/tbao143/Library-ui/refs/heads/main/Redzhubui"))()
+
+-- Define o tamanho desejado ANTES de criar a janela
+redzlib.Save = redzlib.Save or {}
+redzlib.Save.UISize = {800, 430}
+
+-- Cria a janela com as configurações
+local Window = redzlib:MakeWindow({
+    Title = "redz Hub : Blox Fruits",
+    SubTitle = "by redz9999",
+    SaveFolder = "testando | redz lib v5.lua",
+    Theme = "Dark"
+})
+
+-- Adiciona botão de minimizar com estilo
+Window:AddMinimizeButton({
+    Button = {
+        Image = "rbxassetid://133032272724948",
+        BackgroundTransparency = 0
+    },
+    Corner = {
+        CornerRadius = UDim.new(0, 5)
+    }
+})
+
+-- Cria uma aba
+local Tab1 = Window:MakeTab({"farm", "house"})
+
+-- Adiciona um toggle à aba
+Tab1:AddToggle({
+    Name = "Toggle",
+    Default = false,
+    Callback = function(value)
+        print("Toggle está agora:", value)
+        -- Coloque aqui o que deseja executar quando o toggle mudar
+    end
+})
+
+-- Força o tamanho e a posição da janela (centralizado)
+Window.MainFrame.Size = UDim2.fromOffset(580, 460)
+Window.MainFrame.Position = UDim2.new(0.5, -290, 0.5, -230)
